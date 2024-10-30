@@ -12,11 +12,22 @@ class DetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder(
-      child: Center(
-        child: ElevatedButton(
-          onPressed: () => _onBackToHome(context),
-          child: const Text('Back to Home'),
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (itemId != null) ...[
+                Text('item: $itemId'),
+                const SizedBox(height: 12),
+              ],
+              ElevatedButton(
+                onPressed: () => _onBackToHome(context),
+                child: const Text('Back to Home'),
+              ),
+            ],
+          ),
         ),
       ),
     );
