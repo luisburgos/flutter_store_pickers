@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_store_pickers/showcase/item/showcase_item_page.dart';
-import 'package:flutter_store_pickers/showcase/showcase_page.dart';
+import 'package:flutter_store_pickers/showcase/showcase_store_picker_page.dart';
+import 'package:flutter_store_pickers/showcase/showcase_stores_page.dart';
 import 'package:go_router/go_router.dart';
 
 const showcaseItemIdKey = 'id';
@@ -21,9 +21,9 @@ final defaultAppRouter = GoRouter(
       path: AppRoutes.showcaseItem,
       builder: (_, routerState) {
         final storeId = routerState.pathParameters[showcaseItemIdKey];
-        final extra = routerState.extra as Map?;
-        final pickerId = extra?[showcaseItemPickerIdKey] as String?;
-        return ShowcasePickerPage(
+        final queryParams = routerState.uri.queryParameters;
+        final pickerId = queryParams[showcaseItemPickerIdKey];
+        return ShowcaseStorePickerPage(
           storeId: storeId,
           pickerId: pickerId,
         );
@@ -39,10 +39,9 @@ extension BuildContextNavigationMethods<T> on BuildContext {
 
   void navigateToDetails(String storeId, String pickerId) {
     go(
-      AppRoutes.showcaseItem.replaceAll(':$showcaseItemIdKey', storeId),
-      extra: {
-        showcaseItemPickerIdKey: pickerId,
-      },
+      '${AppRoutes.showcaseItem.replaceAll(':$showcaseItemIdKey', storeId)}'
+      '?'
+      '$showcaseItemPickerIdKey=$pickerId',
     );
   }
 }

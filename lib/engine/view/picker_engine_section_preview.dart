@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:flutter_store_pickers/engine/models/models.dart';
 import 'package:flutter_store_pickers/engine/view/picker_engine_section_preview_item.dart';
-import 'package:flutter_store_pickers/utils/layout_grid_utils.dart';
+import 'package:flutter_store_pickers/shared/layout_grid_utils.dart';
 
 const _minHeight = 40.0;
 

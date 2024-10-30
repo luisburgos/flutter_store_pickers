@@ -6,6 +6,7 @@ class ShowcaseStore {
   const ShowcaseStore({
     required this.id,
     required this.name,
+    required this.description,
     required this.brandHexColor,
     required this.pickers,
   });
@@ -15,6 +16,9 @@ class ShowcaseStore {
 
   /// @no-doc
   final String name;
+
+  /// @no-doc
+  final String description;
 
   /// @no-doc
   final String brandHexColor;
@@ -33,6 +37,8 @@ class ShowcaseStorePicker {
   const ShowcaseStorePicker({
     required this.id,
     required this.name,
+    required this.description,
+    required this.iconName,
     required this.builder,
   });
 
@@ -41,6 +47,12 @@ class ShowcaseStorePicker {
 
   /// @no-doc
   final String name;
+
+  /// @no-doc
+  final String iconName;
+
+  /// @no-doc
+  final String description;
 
   /// @no-doc
   final Widget Function() builder;

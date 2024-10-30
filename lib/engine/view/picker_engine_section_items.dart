@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:flutter_store_pickers/engine/models/models.dart';
 import 'package:flutter_store_pickers/engine/view/picker_engine_item_view.dart';
-import 'package:flutter_store_pickers/utils/layout_grid_utils.dart';
+import 'package:flutter_store_pickers/shared/layout_grid_utils.dart';
 
 /// @no-doc
 class PickerEngineSectionItems extends StatelessWidget {
