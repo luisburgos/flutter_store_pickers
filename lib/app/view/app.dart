@@ -21,7 +21,7 @@ class _StorePickersApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const colorSchemeName = 'slate';
+    const colorSchemeName = 'stone';
     final textTheme = ShadTextTheme.fromGoogleFont(
       GoogleFonts.inter,
     );

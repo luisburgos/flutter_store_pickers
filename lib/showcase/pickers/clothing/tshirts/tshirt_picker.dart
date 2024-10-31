@@ -2,18 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/engine/picker_engine.dart';
 import 'package:flutter_store_pickers/showcase/pickers/clothing/tshirts/tshirt_picker_data.dart';
 import 'package:flutter_store_pickers/showcase/pickers/icon_locator_helper.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 /// @no-doc
 class TShirtPickerWidget extends StatefulWidget {
   /// @no-doc
   const TShirtPickerWidget({
-    super.key,
+    required this.hexColor,
     this.id = 'tshirt-01',
+    super.key,
   });
 
   /// @no-doc
   final String id;
+
+  /// @no-doc
+  final String hexColor;
 
   @override
   State<TShirtPickerWidget> createState() => _TShirtPickerWidgetState();
@@ -32,7 +36,7 @@ class _TShirtPickerWidgetState extends State<TShirtPickerWidget> {
   Widget build(BuildContext context) {
     return PickerEngineWidget(
       key: Key(widget.id),
-      color: ShadTheme.of(context).colorScheme.primary,
+      color: HexColor(widget.hexColor),
       iconDataLocator: faIconNameMapping,
       onStateChanged: (state) {
         if (state.selections.isEmpty) return;

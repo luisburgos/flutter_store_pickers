@@ -5,11 +5,13 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 
 class StorePickerView extends StatelessWidget {
   const StorePickerView({
+    required this.store,
     required this.picker,
     required this.onBackPressed,
     super.key,
   });
 
+  final Store store;
   final StorePicker picker;
   final VoidCallback onBackPressed;
 
@@ -24,7 +26,7 @@ class StorePickerView extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      body: picker.builder.call(),
+      body: picker.builder.call(store),
     );
   }
 }

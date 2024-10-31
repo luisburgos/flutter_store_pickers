@@ -2,18 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/engine/picker_engine.dart';
 import 'package:flutter_store_pickers/showcase/pickers/cinema/soda/soda_picker_data.dart';
 import 'package:flutter_store_pickers/showcase/pickers/icon_locator_helper.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 /// @no-doc
 class SodaPickerWidget extends StatefulWidget {
   /// @no-doc
   const SodaPickerWidget({
+    required this.hexColor,
     this.id = 'soda-01',
     super.key,
   });
 
   /// @no-doc
   final String id;
+
+  /// @no-doc
+  final String hexColor;
 
   @override
   State<SodaPickerWidget> createState() => _SodaPickerWidgetState();
@@ -36,13 +40,9 @@ class _SodaPickerWidgetState extends State<SodaPickerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final selections = _selected.values.reduce(
-      (value, element) => [...value, ...element],
-    );
-
     return PickerEngineWidget(
       key: Key(widget.id),
-      color: ShadTheme.of(context).colorScheme.primary,
+      color: HexColor(widget.hexColor),
       iconDataLocator: faIconNameMapping,
       onStateChanged: (state) {},
       sections: [

@@ -43,6 +43,7 @@ class StorePickerPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: StorePickerView(
+          store: store,
           picker: picker,
           onBackPressed: () => _onBackToHome(context),
         ),

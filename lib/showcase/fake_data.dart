@@ -15,7 +15,7 @@ final cinemaStore = Store(
   id: cinemaStoreId,
   name: 'Cinema',
   description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
-  brandHexColor: '#FF00FF',
+  brandHexColor: '#295999',
   pickers: {
     popcornPickerId: popcornPicker,
     sodaPickerId: sodaPicker,
@@ -28,7 +28,7 @@ final popcornPicker = StorePicker(
   name: 'Popcorn',
   description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
   iconName: EmojioneMonotone.popcorn,
-  builder: () => const PopcornPickerWidget(),
+  builder: (store) => PopcornPickerWidget(hexColor: store.brandHexColor),
 );
 
 const sodaPickerId = 'soda';
@@ -37,7 +37,9 @@ final sodaPicker = StorePicker(
   name: 'Soda',
   description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
   iconName: Lucide.cup_soda,
-  builder: () => const SodaPickerWidget(),
+  builder: (store) => SodaPickerWidget(
+    hexColor: store.brandHexColor,
+  ),
 );
 
 const clothingStoreId = 'clothing';
@@ -45,7 +47,7 @@ final clothingStore = Store(
   id: clothingStoreId,
   name: 'Clothing',
   description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
-  brandHexColor: '#FFFF00',
+  brandHexColor: '#CC071E',
   pickers: {
     jeansPickerId: jeansPicker,
     tShirtPickerId: tShirtPicker,
@@ -58,7 +60,9 @@ final jeansPicker = StorePicker(
   name: 'Jeans',
   description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
   iconName: Mdi.tshirt_crew,
-  builder: () => const JeansPickerWidget(),
+  builder: (store) => JeansPickerWidget(
+    hexColor: store.brandHexColor,
+  ),
 );
 
 const tShirtPickerId = 't-shirt';
@@ -67,5 +71,7 @@ final tShirtPicker = StorePicker(
   name: 'T-Shirt',
   description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
   iconName: Iconoir.pants,
-  builder: () => const TShirtPickerWidget(),
+  builder: (store) => TShirtPickerWidget(
+    hexColor: store.brandHexColor,
+  ),
 );

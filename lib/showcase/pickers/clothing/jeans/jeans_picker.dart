@@ -2,18 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/engine/picker_engine.dart';
 import 'package:flutter_store_pickers/showcase/pickers/clothing/jeans/jeans_picker_data.dart';
 import 'package:flutter_store_pickers/showcase/pickers/icon_locator_helper.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 /// @no-doc
 class JeansPickerWidget extends StatefulWidget {
   /// @no-doc
   const JeansPickerWidget({
+    required this.hexColor,
     this.id = 'jeans-01',
     super.key,
   });
 
   /// @no-doc
   final String id;
+
+  /// @no-doc
+  final String hexColor;
 
   @override
   State<JeansPickerWidget> createState() => _JeansPickerWidgetState();
@@ -59,7 +63,7 @@ class _JeansPickerWidgetState extends State<JeansPickerWidget> {
 
     return PickerEngineWidget(
       key: Key(widget.id),
-      color: ShadTheme.of(context).colorScheme.primary,
+      color: HexColor(widget.hexColor),
       iconDataLocator: faIconNameMapping,
       onStateChanged: (state) {},
       sections: [

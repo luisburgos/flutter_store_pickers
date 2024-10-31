@@ -2,19 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/engine/picker_engine.dart';
 import 'package:flutter_store_pickers/showcase/pickers/cinema/popcorn/popcorn_picker_data.dart';
 import 'package:flutter_store_pickers/showcase/pickers/icon_locator_helper.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 /// @no-doc
 class PopcornPickerWidget extends StatefulWidget {
   /// @no-doc
   const PopcornPickerWidget({
-    super.key,
+    required this.hexColor,
     this.initialSelectionLimit = 2,
     this.id = 'popcorn-01',
+    super.key,
   });
 
   /// @no-doc
   final String id;
+
+  /// @no-doc
+  final String hexColor;
 
   /// @no-doc
   final int initialSelectionLimit;
@@ -48,7 +52,7 @@ class _PopcornPickerWidgetState extends State<PopcornPickerWidget> {
 
     return PickerEngineWidget(
       key: Key(widget.id),
-      color: ShadTheme.of(context).colorScheme.primary,
+      color: HexColor(widget.hexColor),
       iconDataLocator: faIconNameMapping,
       onStateChanged: (state) {},
       sections: [

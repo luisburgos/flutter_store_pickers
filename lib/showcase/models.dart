@@ -55,7 +55,7 @@ class StorePicker {
   final String description;
 
   /// @no-doc
-  final Widget Function() builder;
+  final Widget Function(Store) builder;
 
   /// @no-doc
   @override
