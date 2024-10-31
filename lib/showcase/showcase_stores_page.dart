@@ -53,7 +53,7 @@ class ShowcaseStoresView extends StatelessWidget {
                 fontWeight: FontWeight.w300,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
             ...stores.map(
               (store) => ShowcaseStoreView(
                 store: store,
@@ -82,12 +82,9 @@ class ShowcaseStoreView extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: ShadCard(
-        padding: const EdgeInsets.only(
-          top: 24,
-          left: 24,
-          right: 24,
-          bottom: 12,
-        ),
+        border: ShadBorder.none,
+        shadows: const [],
+        padding: EdgeInsets.zero,
         title: Text(store.name),
         //description: Text(store.description),
         child: Padding(
@@ -102,45 +99,51 @@ class ShowcaseStoreView extends StatelessWidget {
                   margin: const EdgeInsets.only(
                     bottom: 20,
                   ),
-                  child: ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    titleAlignment: ListTileTitleAlignment.top,
-                    leading: Padding(
-                      padding: const EdgeInsets.only(
-                        top: 4,
-                      ),
-                      child: Iconify(
-                        option.iconName,
-                        size: 18,
-                      ),
+                  child: ShadCard(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 12,
+                      horizontal: 20,
                     ),
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          option.name,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                          ),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      titleAlignment: ListTileTitleAlignment.top,
+                      leading: Padding(
+                        padding: const EdgeInsets.only(
+                          top: 4,
                         ),
-                        const SizedBox(height: 6),
-                      ],
-                    ),
-                    subtitle: Text(
-                      option.description,
-                      style: const TextStyle(
-                        fontSize: 12,
+                        child: Iconify(
+                          option.iconName,
+                          size: 18,
+                        ),
                       ),
-                    ),
-                    trailing: IconButton(
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
-                        size: 14,
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            option.name,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                        ],
                       ),
-                      onPressed: () => onItemPressed(
-                        store.id,
-                        option.id,
+                      subtitle: Text(
+                        option.description,
+                        style: const TextStyle(
+                          fontSize: 12,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_forward_ios,
+                          size: 14,
+                        ),
+                        onPressed: () => onItemPressed(
+                          store.id,
+                          option.id,
+                        ),
                       ),
                     ),
                   ),
