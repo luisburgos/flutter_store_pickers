@@ -50,8 +50,10 @@ class ShowcaseStorePickerView extends StatelessWidget {
           ],
         ),
         if (picker != null) ...[
-          picker!.builder.call(),
-          const SizedBox(height: 12),
+          Expanded(
+            child: picker!.builder.call(),
+          ),
+          //const SizedBox(height: 12),
         ],
       ],
     );
