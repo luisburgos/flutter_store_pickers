@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 /// @no-doc
-class ShowcaseStore {
+class Store {
   /// @no-doc
-  const ShowcaseStore({
+  const Store({
     required this.id,
     required this.name,
     required this.description,
@@ -24,7 +24,7 @@ class ShowcaseStore {
   final String brandHexColor;
 
   /// @no-doc
-  final Map<String, ShowcaseStorePicker> pickers;
+  final Map<String, StorePicker> pickers;
 
   /// @no-doc
   @override
@@ -32,9 +32,9 @@ class ShowcaseStore {
 }
 
 /// @no-doc
-class ShowcaseStorePicker {
+class StorePicker {
   /// @no-doc
-  const ShowcaseStorePicker({
+  const StorePicker({
     required this.id,
     required this.name,
     required this.description,

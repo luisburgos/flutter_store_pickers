@@ -1,80 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_store_pickers/app/app_routes.dart';
-import 'package:flutter_store_pickers/showcase/fake_data.dart';
-import 'package:flutter_store_pickers/showcase/showcase_models.dart';
+import 'package:flutter_store_pickers/showcase/models.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-class ShowcasePage extends StatelessWidget {
-  const ShowcasePage({super.key});
+class StoresViewTitle extends StatelessWidget {
+  const StoresViewTitle({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: ShowcaseStoresView(
-          stores: globalStores.values.toList(),
-        ),
+    return const Text(
+      'Store Pickers',
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
       ),
     );
   }
 }
 
-class ShowcaseStoresView extends StatelessWidget {
-  const ShowcaseStoresView({
-    required this.stores,
-    super.key,
-  });
-
-  final List<ShowcaseStore> stores;
+class StoresViewDescription extends StatelessWidget {
+  const StoresViewDescription({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 12,
-          horizontal: 24,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Store Pickers',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const Text(
-              'Lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
-            const SizedBox(height: 24),
-            ...stores.map(
-              (store) => ShowcaseStoreView(
-                store: store,
-                onItemPressed: context.navigateToDetails,
-              ),
-            ),
-          ],
-        ),
+    return const Text(
+      'Lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
+      style: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w300,
       ),
     );
   }
 }
 
-class ShowcaseStoreView extends StatelessWidget {
-  const ShowcaseStoreView({
+class StoreView extends StatelessWidget {
+  const StoreView({
     required this.store,
     required this.onItemPressed,
     super.key,
   });
 
-  final ShowcaseStore store;
+  final Store store;
   final void Function(String, String) onItemPressed;
 
   @override
@@ -95,7 +61,7 @@ class ShowcaseStoreView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ...store.pickers.values.map(
-                (option) => Container(
+                (picker) => Container(
                   margin: const EdgeInsets.only(
                     bottom: 20,
                   ),
@@ -112,7 +78,7 @@ class ShowcaseStoreView extends StatelessWidget {
                           top: 4,
                         ),
                         child: Iconify(
-                          option.iconName,
+                          picker.iconName,
                           size: 18,
                         ),
                       ),
@@ -120,7 +86,7 @@ class ShowcaseStoreView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            option.name,
+                            picker.name,
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
@@ -130,7 +96,7 @@ class ShowcaseStoreView extends StatelessWidget {
                         ],
                       ),
                       subtitle: Text(
-                        option.description,
+                        picker.description,
                         style: const TextStyle(
                           fontSize: 12,
                         ),
@@ -142,7 +108,7 @@ class ShowcaseStoreView extends StatelessWidget {
                         ),
                         onPressed: () => onItemPressed(
                           store.id,
-                          option.id,
+                          picker.id,
                         ),
                       ),
                     ),

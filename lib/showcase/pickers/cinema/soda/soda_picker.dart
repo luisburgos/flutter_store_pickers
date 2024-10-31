@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/engine/picker_engine.dart';
-import 'package:flutter_store_pickers/showcase/picker_engine_helpers.dart';
-import 'package:flutter_store_pickers/showcase/stores/cinema/soda/soda_picker_data.dart';
+import 'package:flutter_store_pickers/showcase/pickers/cinema/soda/soda_picker_data.dart';
+import 'package:flutter_store_pickers/showcase/pickers/icon_locator_helper.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 /// @no-doc
