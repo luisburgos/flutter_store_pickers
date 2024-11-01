@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/app/app_routes.dart';
+import 'package:flutter_store_pickers/showcase/items/item/view.dart';
 import 'package:flutter_store_pickers/showcase/state.dart';
-import 'package:flutter_store_pickers/showcase/stores/item/view.dart';
 import 'package:go_router/go_router.dart';
 
 class ShowcaseItemPage extends StatelessWidget {
@@ -56,7 +56,7 @@ class ShowcaseItemPage extends StatelessWidget {
     if (context.canPop()) {
       context.pop();
     } else {
-      context.navigateToHome();
+      context.navigateToRoot();
     }
   }
 }

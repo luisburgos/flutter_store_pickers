@@ -13,14 +13,14 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return DevicePreview(
       builder: (_) => const ShowcaseDataProvider(
-        child: _StorePickersApp(),
+        child: _ShowcaseApp(),
       ),
     );
   }
 }
 
-class _StorePickersApp extends StatelessWidget {
-  const _StorePickersApp();
+class _ShowcaseApp extends StatelessWidget {
+  const _ShowcaseApp();
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,8 @@ class _StorePickersApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      themeMode: ThemeMode.light,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       darkTheme: ShadThemeData(
         brightness: Brightness.dark,
         colorScheme: ShadColorScheme.fromName(

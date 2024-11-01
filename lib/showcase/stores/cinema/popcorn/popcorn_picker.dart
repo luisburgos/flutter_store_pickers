@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/engine/picker_engine.dart';
-import 'package:flutter_store_pickers/showcase/pickers/cinema/popcorn/popcorn_picker_data.dart';
-import 'package:flutter_store_pickers/showcase/pickers/icon_locator_helper.dart';
+import 'package:flutter_store_pickers/showcase/items/icon_locator_helper.dart';
+import 'package:flutter_store_pickers/showcase/stores/cinema/popcorn/popcorn_picker_data.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 /// @no-doc
@@ -81,8 +81,6 @@ class _PopcornPickerWidgetState extends State<PopcornPickerWidget> {
             withPreview: selectionLimit > 1,
             selectionConfig: PickerEngineSelectionConfig(selectionLimit),
             onSelectedChanged: (selected) {
-              print('selected: $selected');
-
               setState(() {
                 /// Filter just the most expensive item during selection
                 final mostExpensiveItem = selected.reduce(

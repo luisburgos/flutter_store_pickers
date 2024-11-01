@@ -1,5 +1,7 @@
+import 'package:flutter_store_pickers/showcase/items/pickers.dart';
 import 'package:flutter_store_pickers/showcase/models.dart';
-import 'package:flutter_store_pickers/showcase/pickers/pickers.dart';
+import 'package:flutter_store_pickers/showcase/stores/cinema/popcorn/popcorn_picker.dart';
+import 'package:flutter_store_pickers/showcase/stores/cinema/soda/soda_picker.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/iconoir.dart';
 import 'package:iconify_flutter/icons/lucide.dart';

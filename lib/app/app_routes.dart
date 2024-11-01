@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_store_pickers/showcase/items/item/page.dart';
 import 'package:flutter_store_pickers/showcase/page.dart';
-import 'package:flutter_store_pickers/showcase/stores/item/page.dart';
 import 'package:go_router/go_router.dart';
 
-const storeIdKey = 'sid';
-const storePickerIdKey = 'pid';
+const groupIdKey = 'gid';
+const itemIdKey = 'iid';
 
 class AppRoutes {
   static const root = '/';
-  static const storePicker = '/:$storeIdKey/picker/:$storePickerIdKey';
+  static const showcaseItem = '/:$groupIdKey/item/:$itemIdKey';
 }
 
 final defaultAppRouter = GoRouter(
@@ -18,13 +18,13 @@ final defaultAppRouter = GoRouter(
       builder: (_, __) => const ShowcasePage(),
     ),
     GoRoute(
-      path: AppRoutes.storePicker,
+      path: AppRoutes.showcaseItem,
       builder: (_, routerState) {
-        final storeId = routerState.pathParameters[storeIdKey];
-        final pickerId = routerState.pathParameters[storePickerIdKey];
+        final groupId = routerState.pathParameters[groupIdKey];
+        final itemId = routerState.pathParameters[itemIdKey];
         return ShowcaseItemPage(
-          groupId: storeId,
-          itemId: pickerId,
+          groupId: groupId,
+          itemId: itemId,
         );
       },
     ),
@@ -32,15 +32,15 @@ final defaultAppRouter = GoRouter(
 );
 
 extension BuildContextNavigationMethods<T> on BuildContext {
-  void navigateToHome() {
+  void navigateToRoot() {
     go(AppRoutes.root);
   }
 
-  void navigateToDetails(String storeId, String pickerId) {
+  void navigateToShowcaseItem(String groupId, String itemId) {
     go(
-      AppRoutes.storePicker
-          .replaceAll(':$storeIdKey', storeId)
-          .replaceAll(':$storePickerIdKey', pickerId),
+      AppRoutes.showcaseItem
+          .replaceAll(':$groupIdKey', groupId)
+          .replaceAll(':$itemIdKey', itemId),
     );
   }
 }

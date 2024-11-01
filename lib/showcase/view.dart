@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/app/app_routes.dart';
+import 'package:flutter_store_pickers/showcase/groups/view.dart';
 import 'package:flutter_store_pickers/showcase/layout.dart';
 import 'package:flutter_store_pickers/showcase/models.dart';
-import 'package:flutter_store_pickers/showcase/stores/widgets.dart';
+import 'package:flutter_store_pickers/showcase/widgets.dart';
 
 class ShowcaseView extends StatelessWidget {
   const ShowcaseView({required this.data, super.key});
@@ -12,13 +13,13 @@ class ShowcaseView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShowcaseViewLayout(
-      title: StoresViewTitle(data.title),
-      description: StoresViewDescription(data.description),
+      title: ShowcaseViewTitle(data.title),
+      description: ShowcaseViewDescription(data.description),
       stores: data.groups.values
           .map(
             (group) => ShowcaseGroupView(
               data: group,
-              onItemPressed: context.navigateToDetails,
+              onItemPressed: context.navigateToShowcaseItem,
             ),
           )
           .toList(),
