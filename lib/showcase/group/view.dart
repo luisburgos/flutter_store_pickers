@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_store_pickers/showcase/groups/layout.dart';
-import 'package:flutter_store_pickers/showcase/items/view.dart';
+import 'package:flutter_store_pickers/showcase/group/layout.dart';
+import 'package:flutter_store_pickers/showcase/item/widgets.dart';
 import 'package:flutter_store_pickers/showcase/models.dart';
 
 class ShowcaseGroupView extends StatelessWidget {

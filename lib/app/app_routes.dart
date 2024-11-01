@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_store_pickers/showcase/items/item/page.dart';
+import 'package:flutter_store_pickers/showcase/item/page.dart';
 import 'package:flutter_store_pickers/showcase/page.dart';
 import 'package:go_router/go_router.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_store_pickers/showcase/items/item/layout.dart';
+import 'package:flutter_store_pickers/showcase/item/layout.dart';
 import 'package:flutter_store_pickers/showcase/models.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/app/app_routes.dart';
-import 'package:flutter_store_pickers/showcase/items/item/view.dart';
+import 'package:flutter_store_pickers/showcase/item/view.dart';
 import 'package:flutter_store_pickers/showcase/state.dart';
 import 'package:go_router/go_router.dart';
 

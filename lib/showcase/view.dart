@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/app/app_routes.dart';
-import 'package:flutter_store_pickers/showcase/groups/view.dart';
+import 'package:flutter_store_pickers/showcase/group/view.dart';
 import 'package:flutter_store_pickers/showcase/layout.dart';
 import 'package:flutter_store_pickers/showcase/models.dart';
 import 'package:flutter_store_pickers/showcase/widgets.dart';

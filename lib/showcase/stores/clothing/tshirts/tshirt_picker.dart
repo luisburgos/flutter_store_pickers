@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/engine/picker_engine.dart';
-import 'package:flutter_store_pickers/showcase/items/clothing/tshirts/tshirt_picker_data.dart';
-import 'package:flutter_store_pickers/showcase/items/icon_locator_helper.dart';
+import 'package:flutter_store_pickers/showcase/item/icon_locator_helper.dart';
+import 'package:flutter_store_pickers/showcase/stores/clothing/tshirts/tshirt_picker_data.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 /// @no-doc
