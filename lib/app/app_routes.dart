@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_store_pickers/showcase/page.dart';
 import 'package:flutter_store_pickers/showcase/stores/item/page.dart';
-import 'package:flutter_store_pickers/showcase/stores/page.dart';
 import 'package:go_router/go_router.dart';
 
 const storeIdKey = 'sid';
@@ -15,16 +15,16 @@ final defaultAppRouter = GoRouter(
   routes: [
     GoRoute(
       path: AppRoutes.root,
-      builder: (_, __) => const StoresPage(),
+      builder: (_, __) => const ShowcasePage(),
     ),
     GoRoute(
       path: AppRoutes.storePicker,
       builder: (_, routerState) {
         final storeId = routerState.pathParameters[storeIdKey];
         final pickerId = routerState.pathParameters[storePickerIdKey];
-        return StorePickerPage(
-          storeId: storeId,
-          pickerId: pickerId,
+        return ShowcaseItemPage(
+          groupId: storeId,
+          itemId: pickerId,
         );
       },
     ),

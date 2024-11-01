@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/shared/shadcn_ui_components.dart';
 
-class StorePickerViewLayout extends StatelessWidget {
-  const StorePickerViewLayout({
+class ShowcaseItemViewLayout extends StatelessWidget {
+  const ShowcaseItemViewLayout({
     required this.body,
     required this.onBackPressed,
     this.headerExtra,

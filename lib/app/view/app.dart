@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/app/app_routes.dart';
 import 'package:flutter_store_pickers/l10n/l10n.dart';
+import 'package:flutter_store_pickers/showcase/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -11,7 +12,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DevicePreview(
-      builder: (_) => const _StorePickersApp(),
+      builder: (_) => const ShowcaseDataProvider(
+        child: _StorePickersApp(),
+      ),
     );
   }
 }

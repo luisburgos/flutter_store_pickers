@@ -4,13 +4,15 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class StoresViewTitle extends StatelessWidget {
-  const StoresViewTitle({super.key});
+  const StoresViewTitle(this.text, {super.key});
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      'Store Pickers',
-      style: TextStyle(
+    return Text(
+      text,
+      style: const TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
@@ -19,41 +21,44 @@ class StoresViewTitle extends StatelessWidget {
 }
 
 class StoresViewDescription extends StatelessWidget {
-  const StoresViewDescription({super.key});
+  const StoresViewDescription(this.text, {super.key});
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      'Lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
-      style: TextStyle(
+    return Text(
+      text,
+      style: const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w300,
+        height: 1.2,
       ),
     );
   }
 }
 
-class StoreView extends StatelessWidget {
-  const StoreView({
-    required this.store,
+class ShowcaseGroupView extends StatelessWidget {
+  const ShowcaseGroupView({
+    required this.data,
     required this.onItemPressed,
     super.key,
   });
 
-  final Store store;
+  final ShowcaseGroupData data;
   final void Function(String, String) onItemPressed;
 
   @override
   Widget build(BuildContext context) {
     return StoreViewLayout(
-      title: Text(store.name),
-      pickers: store.pickers.values
+      title: Text(data.title),
+      pickers: data.items.values
           .map(
-            (picker) => StorePickerView(
-              picker: picker,
+            (item) => ShowcaseItemView(
+              data: item,
               onTap: () => onItemPressed(
-                store.id,
-                picker.id,
+                data.id,
+                item.id,
               ),
             ),
           )
@@ -96,40 +101,49 @@ class StoreViewLayout extends StatelessWidget {
   }
 }
 
-class StorePickerView extends StatelessWidget {
-  const StorePickerView({
-    required this.picker,
+class ShowcaseItemView extends StatelessWidget {
+  const ShowcaseItemView({
+    required this.data,
     required this.onTap,
     super.key,
   });
 
-  final StorePicker picker;
+  final ShowcaseItemData data;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return StorePickerViewLayout(
       onTap: onTap,
-      icon: Padding(
+      icon: Container(
+        height: 56,
+        width: 56,
         padding: const EdgeInsets.only(
-          top: 4,
+          top: 0,
         ),
-        child: Iconify(
-          picker.iconName,
-          size: 18,
+        decoration: BoxDecoration(
+          color: Colors.grey.shade100,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Center(
+          child: Iconify(
+            data.iconName,
+            size: 22,
+          ),
         ),
       ),
       name: Text(
-        picker.name,
+        data.title,
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w500,
         ),
       ),
       description: Text(
-        picker.description,
+        data.description,
         style: const TextStyle(
           fontSize: 12,
+          height: 1.2,
         ),
       ),
     );
@@ -168,7 +182,7 @@ class StorePickerViewLayout extends StatelessWidget {
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 8),
+                  padding: const EdgeInsets.only(right: 12),
                   child: icon,
                 ),
                 Expanded(
@@ -176,7 +190,7 @@ class StorePickerViewLayout extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       name,
-                      const SizedBox(height: 6),
+                      //const SizedBox(height: 6),
                       description,
                     ],
                   ),

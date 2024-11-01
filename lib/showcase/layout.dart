@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class StoresViewLayout extends StatelessWidget {
-  const StoresViewLayout({
+class ShowcaseViewLayout extends StatelessWidget {
+  const ShowcaseViewLayout({
     required this.title,
     required this.description,
     required this.stores,

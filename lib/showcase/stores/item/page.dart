@@ -1,39 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/app/app_routes.dart';
-import 'package:flutter_store_pickers/showcase/fake_data.dart';
+import 'package:flutter_store_pickers/showcase/state.dart';
 import 'package:flutter_store_pickers/showcase/stores/item/view.dart';
 import 'package:go_router/go_router.dart';
 
-class StorePickerPage extends StatelessWidget {
-  const StorePickerPage({
-    required this.storeId,
-    required this.pickerId,
+class ShowcaseItemPage extends StatelessWidget {
+  const ShowcaseItemPage({
+    required this.groupId,
+    required this.itemId,
     super.key,
   });
 
-  final String? storeId;
-  final String? pickerId;
+  final String? groupId;
+  final String? itemId;
 
   @override
   Widget build(BuildContext context) {
-    final store = globalStores[storeId];
-    if (store == null) {
+    final data = ShowcaseState.of(context).data;
+    final group = data.groups[groupId];
+    if (group == null) {
       return Scaffold(
         body: SafeArea(
-          child: UnknownStorePickerView(
-            message: 'Unknown store id: $storeId',
+          child: UnknownShowcaseItemView(
+            message: 'Unknown store id: $groupId',
             onBackPressed: () => _onBackToHome(context),
           ),
         ),
       );
     }
 
-    final picker = store.pickers[pickerId];
-    if (picker == null) {
+    final item = group.items[itemId];
+    if (item == null) {
       return Scaffold(
         body: SafeArea(
-          child: UnknownStorePickerView(
-            message: 'Unknown picker id: $pickerId',
+          child: UnknownShowcaseItemView(
+            message: 'Unknown picker id: $itemId',
             onBackPressed: () => _onBackToHome(context),
           ),
         ),
@@ -42,9 +43,9 @@ class StorePickerPage extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: StorePickerView(
-          store: store,
-          picker: picker,
+        child: ShowcaseItemView(
+          group: group,
+          item: item,
           onBackPressed: () => _onBackToHome(context),
         ),
       ),

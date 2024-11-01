@@ -3,36 +3,36 @@ import 'package:flutter_store_pickers/showcase/models.dart';
 import 'package:flutter_store_pickers/showcase/stores/item/layout.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-class StorePickerView extends StatelessWidget {
-  const StorePickerView({
-    required this.store,
-    required this.picker,
+class ShowcaseItemView extends StatelessWidget {
+  const ShowcaseItemView({
+    required this.group,
+    required this.item,
     required this.onBackPressed,
     super.key,
   });
 
-  final Store store;
-  final StorePicker picker;
+  final ShowcaseGroupData group;
+  final ShowcaseItemData item;
   final VoidCallback onBackPressed;
 
   @override
   Widget build(BuildContext context) {
-    return StorePickerViewLayout(
+    return ShowcaseItemViewLayout(
       onBackPressed: onBackPressed,
       headerExtra: Text(
-        picker.name,
+        item.title,
         style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
-      body: picker.builder.call(store),
+      body: item.viewBuilder.call(group),
     );
   }
 }
 
-class UnknownStorePickerView extends StatelessWidget {
-  const UnknownStorePickerView({
+class UnknownShowcaseItemView extends StatelessWidget {
+  const UnknownShowcaseItemView({
     required this.message,
     required this.onBackPressed,
     super.key,
@@ -43,7 +43,7 @@ class UnknownStorePickerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StorePickerViewLayout(
+    return ShowcaseItemViewLayout(
       onBackPressed: onBackPressed,
       body: Center(
         child: Column(

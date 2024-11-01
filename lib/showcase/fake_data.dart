@@ -5,73 +5,81 @@ import 'package:iconify_flutter/icons/iconoir.dart';
 import 'package:iconify_flutter/icons/lucide.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
-final globalStores = {
-  cinemaStoreId: cinemaStore,
-  clothingStoreId: clothingStore,
-};
+final showcaseData = ShowcaseData(
+  title: 'Store Pickers',
+  description: 'Lorem ipsum lorem ipsum lorem ipsum lorem '
+      'ipsum lorem ipsum lorem ipsum ipsum',
+  groups: {
+    cinemaStoreId: cinemaStore,
+    clothingStoreId: clothingStore,
+  },
+);
 
 const cinemaStoreId = 'cinema';
-final cinemaStore = Store(
+final cinemaStore = ShowcaseGroupData(
   id: cinemaStoreId,
-  name: 'Cinema',
+  title: 'Cinema',
   description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
-  brandHexColor: '#295999',
-  pickers: {
+  hexColor: '#295999',
+  items: {
     popcornPickerId: popcornPicker,
     sodaPickerId: sodaPicker,
   },
 );
 
 const popcornPickerId = 'popcorn';
-final popcornPicker = StorePicker(
+final popcornPicker = ShowcaseItemData(
   id: popcornPickerId,
-  name: 'Popcorn',
+  title: 'Popcorn',
   description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
   iconName: EmojioneMonotone.popcorn,
-  builder: (store) => PopcornPickerWidget(hexColor: store.brandHexColor),
+  viewBuilder: (group) => PopcornPickerWidget(
+    hexColor: group.hexColor,
+  ),
 );
 
 const sodaPickerId = 'soda';
-final sodaPicker = StorePicker(
+final sodaPicker = ShowcaseItemData(
   id: sodaPickerId,
-  name: 'Soda',
+  title: 'Soda',
   description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
   iconName: Lucide.cup_soda,
-  builder: (store) => SodaPickerWidget(
-    hexColor: store.brandHexColor,
+  viewBuilder: (group) => SodaPickerWidget(
+    hexColor: group.hexColor,
   ),
 );
 
 const clothingStoreId = 'clothing';
-final clothingStore = Store(
+final clothingStore = ShowcaseGroupData(
   id: clothingStoreId,
-  name: 'Clothing',
+  title: 'Clothing',
   description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
-  brandHexColor: '#CC071E',
-  pickers: {
+  hexColor: '#CC071E',
+  items: {
     jeansPickerId: jeansPicker,
     tShirtPickerId: tShirtPicker,
   },
 );
 
 const jeansPickerId = 'jeans';
-final jeansPicker = StorePicker(
+final jeansPicker = ShowcaseItemData(
   id: jeansPickerId,
-  name: 'Jeans',
+  title: 'Jeans',
   description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
   iconName: Mdi.tshirt_crew,
-  builder: (store) => JeansPickerWidget(
-    hexColor: store.brandHexColor,
+  viewBuilder: (group) => JeansPickerWidget(
+    hexColor: group.hexColor,
   ),
 );
 
 const tShirtPickerId = 't-shirt';
-final tShirtPicker = StorePicker(
+final tShirtPicker = ShowcaseItemData(
   id: tShirtPickerId,
-  name: 'T-Shirt',
-  description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum',
+  title: 'T-Shirt',
+  description: 'TODO: Loremp ipsum lorem ipsum lorem ipsum '
+      'lorem ipsum lorem ipsum ',
   iconName: Iconoir.pants,
-  builder: (store) => TShirtPickerWidget(
-    hexColor: store.brandHexColor,
+  viewBuilder: (group) => TShirtPickerWidget(
+    hexColor: group.hexColor,
   ),
 );

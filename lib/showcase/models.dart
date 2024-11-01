@@ -1,63 +1,71 @@
 import 'package:flutter/material.dart';
 
 /// @no-doc
-class Store {
-  /// @no-doc
-  const Store({
-    required this.id,
-    required this.name,
+class ShowcaseData {
+  const ShowcaseData({
+    required this.title,
     required this.description,
-    required this.brandHexColor,
-    required this.pickers,
+    required this.groups,
   });
 
   /// @no-doc
-  final String id;
-
-  /// @no-doc
-  final String name;
+  final String title;
 
   /// @no-doc
   final String description;
 
   /// @no-doc
-  final String brandHexColor;
-
-  /// @no-doc
-  final Map<String, StorePicker> pickers;
-
-  /// @no-doc
-  @override
-  String toString() => id;
+  final Map<String, ShowcaseGroupData> groups;
 }
 
 /// @no-doc
-class StorePicker {
-  /// @no-doc
-  const StorePicker({
+class ShowcaseGroupData {
+  const ShowcaseGroupData({
     required this.id,
-    required this.name,
-    required this.description,
-    required this.iconName,
-    required this.builder,
+    required this.title,
+    required this.items,
+    required this.hexColor,
+    this.description,
   });
 
   /// @no-doc
   final String id;
 
   /// @no-doc
-  final String name;
+  final String title;
+
+  /// @no-doc
+  final String? description;
+
+  /// @no-doc
+  final String hexColor;
+
+  /// @no-doc
+  final Map<String, ShowcaseItemData> items;
+}
+
+/// @no-doc
+class ShowcaseItemData {
+  const ShowcaseItemData({
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.iconName,
+    required this.viewBuilder,
+  });
+
+  /// @no-doc
+  final String id;
+
+  /// @no-doc
+  final String title;
+
+  /// @no-doc
+  final String description;
 
   /// @no-doc
   final String iconName;
 
   /// @no-doc
-  final String description;
-
-  /// @no-doc
-  final Widget Function(Store) builder;
-
-  /// @no-doc
-  @override
-  String toString() => id;
+  final Widget Function(ShowcaseGroupData) viewBuilder;
 }
