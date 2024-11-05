@@ -24,7 +24,7 @@ dependencies:
   iconify_flutter: ^0.0.7
   intl: ^0.19.0
   money2: ^5.3.0
-  shadcn_ui: ^0.14.1
+  shadcn_ui: ^0.15.0
 
 dev_dependencies:
   bloc_test: ^9.1.7
