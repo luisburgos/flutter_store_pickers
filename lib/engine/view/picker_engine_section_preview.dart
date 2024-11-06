@@ -3,6 +3,7 @@ import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:flutter_store_pickers/engine/models/models.dart';
 import 'package:flutter_store_pickers/engine/view/picker_engine_section_preview_item.dart';
 import 'package:flutter_store_pickers/shared/layout_grid_utils.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 const _minHeight = 40.0;
 
@@ -28,11 +29,16 @@ class PickerEngineSectionPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (items.isEmpty) {
-      return Container(
-        margin: const EdgeInsets.symmetric(vertical: 4),
-        color: Colors.grey.shade200,
-        width: double.infinity,
-        height: _minHeight,
+      final theme = ShadTheme.of(context);
+
+      return ShadCard(
+        padding: EdgeInsets.zero,
+        shadows: const [],
+        backgroundColor: theme.colorScheme.primaryForeground,
+        child: const SizedBox(
+          width: double.infinity,
+          height: _minHeight,
+        ),
       );
     }
 

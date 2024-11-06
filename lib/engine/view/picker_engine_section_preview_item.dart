@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/engine/models/models.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 const _minHeight = 40.0;
 
@@ -28,36 +29,40 @@ class PickerSelectionPreviewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final theme = ShadTheme.of(context);
 
-    return Container(
-      color: theme.colorScheme.secondary.withAlpha(30),
-      height: _minHeight,
-      child: Stack(
-        children: [
-          if (item.iconName != null)
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Icon(
-                  iconDataLocator(item.iconName!),
-                  size: 16,
+    return ShadCard(
+      padding: EdgeInsets.zero,
+      shadows: const [],
+      backgroundColor: theme.colorScheme.primaryForeground,
+      child: SizedBox(
+        height: _minHeight,
+        child: Stack(
+          children: [
+            if (item.iconName != null)
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Icon(
+                    iconDataLocator(item.iconName!),
+                    size: 16,
+                  ),
                 ),
               ),
-            ),
-          if (displayRemoveButton)
-            Positioned(
-              top: 0,
-              right: 0,
-              child: IconButton(
-                icon: const Icon(
-                  Icons.close,
-                  size: 12,
+            if (displayRemoveButton)
+              Positioned(
+                top: 0,
+                right: 0,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.close,
+                    size: 12,
+                  ),
+                  onPressed: () => onRemoveTap(item),
                 ),
-                onPressed: () => onRemoveTap(item),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_pickers/engine/models/models.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 /// @no-doc
 class PickerEngineItemView extends StatelessWidget {
@@ -32,41 +33,45 @@ class PickerEngineItemView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => onOptionTap(item),
-      child: Container(
+      child: ShadCard(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(
-          vertical: 8,
-          horizontal: 12,
+        shadows: const [],
+        padding: const EdgeInsets.all(10),
+        border: Border.all(
+          width: 1.8,
+          color: isSelected
+              ? selectedColor
+              : ShadTheme.of(context).colorScheme.border,
         ),
-        decoration: BoxDecoration(
-          border: Border.all(
-            width: 2,
-            color: isSelected ? selectedColor : Colors.grey.shade400,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            minHeight: 60,
+            minWidth: double.infinity,
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (item.iconName != null)
-              Icon(
-                iconDataLocator(item.iconName!),
-                size: 16,
-              ),
-            Text(
-              item.name,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 16,
-              ),
-            ),
-            if ((item.price ?? 0) > 0)
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (item.iconName != null)
+                Icon(
+                  iconDataLocator(item.iconName!),
+                  size: 16,
+                ),
               Text(
-                '\$${item.price}',
+                item.name,
+                textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontSize: 12,
+                  fontSize: 16,
                 ),
               ),
-          ],
+              if ((item.price ?? 0) > 0)
+                Text(
+                  '\$${item.price}',
+                  style: const TextStyle(
+                    fontSize: 12,
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
