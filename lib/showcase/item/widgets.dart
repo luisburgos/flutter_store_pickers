@@ -76,10 +76,7 @@ class ShowcaseItemListTileLayout extends StatelessWidget {
             bottom: 20,
           ),
           child: ShadCard(
-            padding: const EdgeInsets.symmetric(
-              vertical: 12,
-              horizontal: 20,
-            ),
+            padding: const EdgeInsets.all(20),
             child: Row(
               children: [
                 Padding(
